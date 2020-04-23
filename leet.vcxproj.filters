@@ -16,10 +16,26 @@
     <ClCompile Include="lib\leetlib.cpp">
       <Filter>library</Filter>
     </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameActor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerShip.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SpaceInvadersGame.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="lib\leetlib.h">
       <Filter>library</Filter>
     </ClInclude>
+    <ClInclude Include="GameObject.h" />
+    <ClInclude Include="GameActor.h" />
+    <ClInclude Include="PlayerShip.h" />
+    <ClInclude Include="SpaceInvadersGame.h" />
   </ItemGroup>
 </Project>

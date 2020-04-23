@@ -97,11 +97,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="SpaceInvadersGame.cpp" />
+    <ClCompile Include="GameActor.cpp" />
+    <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="lib\leetlib.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="PlayerShip.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="SpaceInvadersGame.h" />
+    <ClInclude Include="GameActor.h" />
+    <ClInclude Include="GameObject.h" />
     <ClInclude Include="lib\leetlib.h" />
+    <ClInclude Include="PlayerShip.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

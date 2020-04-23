@@ -10,6 +10,9 @@ typedef unsigned long       DWORD;
 // 'system' - screen is always 800 x 600
 // simply call StartFrame and Flip alternately to run the game; StartFrame returns false if the user is trying to quit
 
+#define SCREEN_X 800
+#define SCREEN_Y 600
+
 bool WantQuit(DWORD clearcolor=0);
 void Flip(); // flips the screen, frame locked to 60 hz
 void Game(); // you write this :)

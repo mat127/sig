@@ -1,5 +1,8 @@
-#include "lib/leetlib.h"
 #include <math.h>
+
+#include "SpaceInvadersGame.h"
+
+#include "lib/leetlib.h"
 
 int x[50];
 int y[50];
@@ -13,7 +16,12 @@ struct bullet
 
 bullet bullets[10];
 
-void Game()
+void Game() {
+	SpaceInvadersGame game;
+	game.run();
+}
+
+void AnotherOldGame()
 {
 	void *Text[]=
 	{
