@@ -1,46 +1,31 @@
 #pragma once
-#include "GameActor.h"
 #include "lib/leetlib.h"
 
-class PlayerShip :
-	public GameActor
-{
-private:
-	unsigned int position;
-	float angle;
-	unsigned int positionRange[2];
+#include "SingleSkinGameActor.h"
 
-	static void * skin;
-	static const unsigned int verticalPosition;
-	static const unsigned int size[];
-	static const int stepSize;
+class PlayerShip : public SingleSkinGameActor {
+private:
+	int positionRange[2];
+	unsigned int stepSize;
 
 public:
-	PlayerShip(unsigned int position) : position(position) {}
+	PlayerShip(unsigned int position);
 
-	static void loadSkin();
-
-	inline void setPositionRange(const unsigned int min, const unsigned int max) {
+	inline void setPositionRange(const int min, const int max) {
 		this->positionRange[0] = min;
 		this->positionRange[1] = max;
 	}
 
-	virtual void draw();
 	virtual void tick(unsigned int time);
 
-	bool canMoveLeft() {
-		return this->position >= PlayerShip::positionRange[0] + PlayerShip::size[0] + PlayerShip::stepSize;
+	bool canMoveLeft();
+	bool canMoveRight();
+	inline void moveLeft() {
+		this->move(-stepSize,0);
 	}
-	bool canMoveRight() {
-		return this->position <= PlayerShip::positionRange[1] - PlayerShip::size[0] - PlayerShip::stepSize;
+	inline void moveRight() {
+		this->move(stepSize, 0);
 	}
-	void moveLeft() {
-		this->position -= stepSize;
-	}
-	void moveRight() {
-		this->position += stepSize;
-	}
-	inline void setAngle(const double angle) {
-		this->angle = angle;
-	}
+
+	void rotate(unsigned int time);
 };

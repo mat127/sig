@@ -1,28 +1,17 @@
 #define _USE_MATH_DEFINES
 #include <cmath>
+#include <iostream>
 
 #include "lib/leetlib.h"
 
 #include "PlayerShip.h"
 
-void * PlayerShip::skin;
-
-const unsigned int PlayerShip::verticalPosition = 550;
-const unsigned int PlayerShip::size[] = { 50, 50 };
-const int PlayerShip::stepSize = 7;
-
-void PlayerShip::loadSkin() {
-	PlayerShip::skin = LoadSprite("gfx/Big Invader.png");
-}
-
-void PlayerShip::draw() {
-	DrawSprite(
-		PlayerShip::skin,
-		this->position, PlayerShip::verticalPosition,
-		PlayerShip::size[0], PlayerShip::size[0],
-		this->angle,
-		0xffffffff
-	);
+PlayerShip::PlayerShip(unsigned int position) :
+	SingleSkinGameActor("gfx/Big Invader.png")
+{
+	this->setPosition(position, 550);
+	this->setSize(50);
+	this->stepSize = 7;
 }
 
 void PlayerShip::tick(unsigned int time) {
@@ -30,5 +19,19 @@ void PlayerShip::tick(unsigned int time) {
 		this->moveLeft();
 	if (IsKeyDown(VK_RIGHT) && this->canMoveRight())
 		this->moveRight();
+	this->rotate(time);
+}
+
+void PlayerShip::rotate(unsigned int time) {
 	this->setAngle(M_PI + sin(time*0.1)*0.1);
+}
+
+bool PlayerShip::canMoveLeft() {
+	int bound = this->getLeftBound();
+	return bound - (int)stepSize >= this->positionRange[0];
+}
+
+bool PlayerShip::canMoveRight() {
+	int bound = this->getRightBound();
+	return bound + stepSize <= this->positionRange[1];
 }

@@ -1,17 +1,15 @@
 #pragma once
 #include "PlayerShip.h"
+#include "AlienFleet.h"
 
 class SpaceInvadersGame {
 private:
 	unsigned int time;
 	PlayerShip ship;
-
-	void initialize();
+	AlienFleet aliens;
 
 public:
-	SpaceInvadersGame() : ship(400), time(0u) {
-		ship.setPositionRange(0, SCREEN_X);
-	}
+	SpaceInvadersGame();
 	void run();
 	void tick();
 	void draw();

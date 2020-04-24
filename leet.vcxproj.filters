@@ -16,16 +16,19 @@
     <ClCompile Include="lib\leetlib.cpp">
       <Filter>library</Filter>
     </ClCompile>
-    <ClCompile Include="GameObject.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GameActor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="PlayerShip.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="SpaceInvadersGame.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Alien.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SingleSkinGameActor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AlienFleet.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -37,5 +40,8 @@
     <ClInclude Include="GameActor.h" />
     <ClInclude Include="PlayerShip.h" />
     <ClInclude Include="SpaceInvadersGame.h" />
+    <ClInclude Include="Alien.h" />
+    <ClInclude Include="SingleSkinGameActor.h" />
+    <ClInclude Include="AlienFleet.h" />
   </ItemGroup>
 </Project>

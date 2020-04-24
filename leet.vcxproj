@@ -97,14 +97,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Alien.cpp" />
+    <ClCompile Include="AlienFleet.cpp" />
+    <ClCompile Include="SingleSkinGameActor.cpp" />
     <ClCompile Include="SpaceInvadersGame.cpp" />
-    <ClCompile Include="GameActor.cpp" />
-    <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="lib\leetlib.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PlayerShip.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Alien.h" />
+    <ClInclude Include="AlienFleet.h" />
+    <ClInclude Include="SingleSkinGameActor.h" />
     <ClInclude Include="SpaceInvadersGame.h" />
     <ClInclude Include="GameActor.h" />
     <ClInclude Include="GameObject.h" />
