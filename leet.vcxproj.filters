@@ -31,6 +31,15 @@
     <ClCompile Include="AlienFleet.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ShipGun.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SkinLoader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="lib\leetlib.h">
@@ -43,5 +52,8 @@
     <ClInclude Include="Alien.h" />
     <ClInclude Include="SingleSkinGameActor.h" />
     <ClInclude Include="AlienFleet.h" />
+    <ClInclude Include="Bullet.h" />
+    <ClInclude Include="ShipGun.h" />
+    <ClInclude Include="SkinLoader.h" />
   </ItemGroup>
 </Project>

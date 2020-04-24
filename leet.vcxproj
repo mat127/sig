@@ -99,7 +99,10 @@
   <ItemGroup>
     <ClCompile Include="Alien.cpp" />
     <ClCompile Include="AlienFleet.cpp" />
+    <ClCompile Include="Bullet.cpp" />
+    <ClCompile Include="ShipGun.cpp" />
     <ClCompile Include="SingleSkinGameActor.cpp" />
+    <ClCompile Include="SkinLoader.cpp" />
     <ClCompile Include="SpaceInvadersGame.cpp" />
     <ClCompile Include="lib\leetlib.cpp" />
     <ClCompile Include="main.cpp" />
@@ -108,7 +111,10 @@
   <ItemGroup>
     <ClInclude Include="Alien.h" />
     <ClInclude Include="AlienFleet.h" />
+    <ClInclude Include="Bullet.h" />
+    <ClInclude Include="ShipGun.h" />
     <ClInclude Include="SingleSkinGameActor.h" />
+    <ClInclude Include="SkinLoader.h" />
     <ClInclude Include="SpaceInvadersGame.h" />
     <ClInclude Include="GameActor.h" />
     <ClInclude Include="GameObject.h" />

@@ -1,0 +1,14 @@
+#pragma once
+#include "SingleSkinGameActor.h"
+
+class Bullet : public SingleSkinGameActor {
+private:
+	unsigned int speed;
+public:
+	Bullet(void * skin);
+	virtual void tick(unsigned int time);
+	inline bool missed() const {
+		return this->position[1] < 0;
+	}
+};
+

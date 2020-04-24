@@ -12,9 +12,18 @@ public:
 	SingleSkinGameActor(void * skin);
 	SingleSkinGameActor(const char * skinFilename);
 
+	inline const int * getPosition() const {
+		return this->position;
+	}
+
 	inline void setPosition(const int x, const int y) {
 		this->position[0] = x;
 		this->position[1] = y;
+	}
+
+	inline void setPosition(const int position[]) {
+		this->position[0] = position[0];
+		this->position[1] = position[1];
 	}
 
 	inline void move(const int dx, const int dy) {
@@ -34,6 +43,10 @@ public:
 
 	inline void setAngle(float angle) {
 		this->angle = angle;
+	}
+
+	inline void rotate(float angle) {
+		this->angle += angle;
 	}
 
 	inline int getLeftBound() { return this->position[0] - this->size[0]; }

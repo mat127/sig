@@ -2,11 +2,13 @@
 #include "lib/leetlib.h"
 
 #include "SingleSkinGameActor.h"
+#include "ShipGun.h"
 
 class PlayerShip : public SingleSkinGameActor {
 private:
 	int positionRange[2];
 	unsigned int stepSize;
+	ShipGun gun;
 
 public:
 	PlayerShip(unsigned int position);
@@ -17,6 +19,7 @@ public:
 	}
 
 	virtual void tick(unsigned int time);
+	virtual void draw();
 
 	bool canMoveLeft();
 	bool canMoveRight();

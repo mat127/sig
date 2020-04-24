@@ -7,7 +7,7 @@
 #include "PlayerShip.h"
 
 PlayerShip::PlayerShip(unsigned int position) :
-	SingleSkinGameActor("gfx/Big Invader.png")
+	SingleSkinGameActor("gfx/Big Invader.png"), gun(*this)
 {
 	this->setPosition(position, 550);
 	this->setSize(50);
@@ -20,6 +20,12 @@ void PlayerShip::tick(unsigned int time) {
 	if (IsKeyDown(VK_RIGHT) && this->canMoveRight())
 		this->moveRight();
 	this->rotate(time);
+	this->gun.tick(time);
+}
+
+void PlayerShip::draw() {
+	SingleSkinGameActor::draw();
+	this->gun.draw();
 }
 
 void PlayerShip::rotate(unsigned int time) {
