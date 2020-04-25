@@ -14,5 +14,9 @@ struct GameStats {
 	void killed(const Alien & alien) {
 		this->score += alien.getScore();
 	}
+	void reset() {
+		this->lives = 3;
+		this->score = 0;
+	}
 };
 

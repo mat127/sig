@@ -1,3 +1,5 @@
+#include <cstdio>
+
 #include "lib/leetlib.h"
 
 #include "TextWidget.h"
@@ -20,7 +22,23 @@ void TextWidget::draw() {
 	}
 }
 
-void TextWidget::draw(const char * text) {
-	this->text = text;
+void TextWidget::draw(const char * format, ...) {
+	va_list args;
+	va_start(args, format);
+	this->format(format, args);
+	va_end(args);
 	this->draw();
+}
+
+void TextWidget::format(const char * format, va_list args) {
+	char buffer[64];
+	vsnprintf(buffer, sizeof(buffer), format, args);
+	this->text = buffer;
+}
+
+void TextWidget::format(const char * format, ...) {
+	va_list args;
+	va_start(args, format);
+	this->format(format, args);
+	va_end(args);
 }

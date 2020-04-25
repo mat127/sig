@@ -104,7 +104,6 @@
     <ClCompile Include="src\actor\Bullet.cpp" />
     <ClCompile Include="src\actor\PlayerShip.cpp" />
     <ClCompile Include="src\actor\ShipGun.cpp" />
-    <ClCompile Include="src\game\GameStats.cpp" />
     <ClCompile Include="src\game\GameWidgets.cpp" />
     <ClCompile Include="src\game\SingleSkinGameActor.cpp" />
     <ClCompile Include="src\game\SpaceInvadersGame.cpp" />
@@ -112,6 +111,7 @@
     <ClCompile Include="src\util\Font.cpp" />
     <ClCompile Include="src\util\SkinLoader.cpp" />
     <ClCompile Include="src\widget\TextWidget.cpp" />
+    <ClCompile Include="src\widget\WidgetScreen.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="lib\leetlib.h" />
@@ -130,6 +130,7 @@
     <ClInclude Include="src\util\SkinLoader.h" />
     <ClInclude Include="src\util\Vector.h" />
     <ClInclude Include="src\widget\TextWidget.h" />
+    <ClInclude Include="src\widget\WidgetScreen.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

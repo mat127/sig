@@ -1,8 +1,7 @@
-#include <iostream>
-
 #include "lib/leetlib.h"
 
 #include "SpaceInvadersGame.h"
+#include "widget/WidgetScreen.h"
 
 SpaceInvadersGame::SpaceInvadersGame() :
 	ship(400),
@@ -14,14 +13,57 @@ SpaceInvadersGame::SpaceInvadersGame() :
 }
 
 void SpaceInvadersGame::run() {
-	while (!WantQuit()
-		&& !IsKeyDown(VK_ESCAPE)
-		&& !this->isOver()
-	) {
+	if(!this->intro())
+		return;
+	do {
+		if(!this->battle())
+			break;
+	} while (this->playAgain());
+}
+
+bool SpaceInvadersGame::intro() {
+	WidgetScreen screen;
+
+	TextWidget title(200, 200, 32);
+	title.text = "space invaders";
+	screen.add(&title);
+
+	TextWidget start(120, 400, 24);
+	start.text = "press space bar to start";
+	screen.add(&start);
+
+	return screen.show(VK_SPACE);
+}
+
+bool SpaceInvadersGame::battle() {
+	while(!this->isOver()) {
+		if (WantQuit()
+			|| IsKeyDown(VK_ESCAPE)
+		)
+			return false;
 		this->tick();
 		this->checkCollisions();
 		this->draw();
 	}
+	return true;
+}
+
+bool SpaceInvadersGame::playAgain() {
+	WidgetScreen screen;
+
+	TextWidget gameOver(140, 200, 64);
+	gameOver.text = "game over";
+	screen.add(&gameOver);
+
+	TextWidget score(220, 350, 24);
+	score.format("your score %06u", this->stats.score);
+	screen.add(&score);
+
+	if (!screen.show(VK_SPACE))
+		return false;
+
+	this->stats.reset();
+	return true;
 }
 
 void SpaceInvadersGame::tick() {

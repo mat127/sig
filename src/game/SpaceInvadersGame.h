@@ -16,6 +16,10 @@ private:
 
 	GameWidgets widgets;
 
+	bool intro();
+	bool battle();
+	bool playAgain();
+
 	void tick();
 	void draw();
 
@@ -27,7 +31,7 @@ private:
 
 	void playerDead() { this->stats.playerDied(); }
 	bool isOver() const { return !this->stats.isPlayerAlive(); }
-
+	
 public:
 	SpaceInvadersGame();
 	void run();
