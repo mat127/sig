@@ -17,6 +17,9 @@
     <Filter Include="Source Files\util">
       <UniqueIdentifier>{1deb3985-9d5f-4d3a-89f5-6b02cab76720}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\widget">
+      <UniqueIdentifier>{d2e77840-43bf-445a-be8a-03f6271178c5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="lib\leetlib.cpp">
@@ -48,6 +51,18 @@
     </ClCompile>
     <ClCompile Include="src\main.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\widget\TextWidget.cpp">
+      <Filter>Source Files\widget</Filter>
+    </ClCompile>
+    <ClCompile Include="src\util\Font.cpp">
+      <Filter>Source Files\util</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game\GameWidgets.cpp">
+      <Filter>Source Files\game</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game\GameStats.cpp">
+      <Filter>Source Files\game</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -86,6 +101,18 @@
     </ClInclude>
     <ClInclude Include="src\util\Vector.h">
       <Filter>Source Files\util</Filter>
+    </ClInclude>
+    <ClInclude Include="src\widget\TextWidget.h">
+      <Filter>Source Files\widget</Filter>
+    </ClInclude>
+    <ClInclude Include="src\util\Font.h">
+      <Filter>Source Files\util</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\GameWidgets.h">
+      <Filter>Source Files\game</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\GameStats.h">
+      <Filter>Source Files\game</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

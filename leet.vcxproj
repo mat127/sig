@@ -104,10 +104,14 @@
     <ClCompile Include="src\actor\Bullet.cpp" />
     <ClCompile Include="src\actor\PlayerShip.cpp" />
     <ClCompile Include="src\actor\ShipGun.cpp" />
+    <ClCompile Include="src\game\GameStats.cpp" />
+    <ClCompile Include="src\game\GameWidgets.cpp" />
     <ClCompile Include="src\game\SingleSkinGameActor.cpp" />
     <ClCompile Include="src\game\SpaceInvadersGame.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\util\Font.cpp" />
     <ClCompile Include="src\util\SkinLoader.cpp" />
+    <ClCompile Include="src\widget\TextWidget.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="lib\leetlib.h" />
@@ -118,10 +122,14 @@
     <ClInclude Include="src\actor\ShipGun.h" />
     <ClInclude Include="src\game\GameActor.h" />
     <ClInclude Include="src\game\GameObject.h" />
+    <ClInclude Include="src\game\GameStats.h" />
+    <ClInclude Include="src\game\GameWidgets.h" />
     <ClInclude Include="src\game\SingleSkinGameActor.h" />
     <ClInclude Include="src\game\SpaceInvadersGame.h" />
+    <ClInclude Include="src\util\Font.h" />
     <ClInclude Include="src\util\SkinLoader.h" />
     <ClInclude Include="src\util\Vector.h" />
+    <ClInclude Include="src\widget\TextWidget.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

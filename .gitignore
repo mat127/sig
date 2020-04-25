@@ -259,3 +259,8 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+/src/collision
+/src/collision/CollisionTargetShape.h
+/src/collision/CollisionTargetShape.cpp
+/src/collision/CollisionTarget.h
+/src/collision/CollisionTarget.cpp
