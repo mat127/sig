@@ -10,6 +10,11 @@ ShipGun::~ShipGun() {
 	}
 }
 
+void ShipGun::remove(Bullet * bullet) {
+	this->bullets.remove(bullet);
+	delete bullet;
+}
+
 void ShipGun::tick(unsigned int time) {
 	if (!IsKeyDown(VK_SPACE))
 		this->setLoaded();
@@ -51,9 +56,18 @@ inline bool ShipGun::isLoaded() {
 
 void ShipGun::shoot() {
 	auto bullet = new Bullet(SkinLoader::getSkin("gfx/bullet.png"));
-	const int * position = this->ship.getPosition();
+	const Vector<int> & position = this->ship.getPosition();
 	bullet->setPosition(position);
 	this->bullets.push_front(bullet);
 	this->loading.restart();
 }
 
+bool ShipGun::hit(const SingleSkinGameActor & actor) {
+	for (auto it = this->bullets.begin(); it != this->bullets.end(); it++) {
+		if ((*it)->hit(actor)) {
+			this->remove(*it);
+			return true;
+		}
+	}
+	return false;
+}

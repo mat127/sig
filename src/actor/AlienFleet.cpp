@@ -1,13 +1,14 @@
 #include "lib/leetlib.h"
 
 #include "AlienFleet.h"
+#include "util/SkinLoader.h"
 
 AlienFleet::AlienFleet(unsigned int size)
 	: aliens() 
 {
-	void * skin = LoadSprite("gfx/Little Invader.png");
-	for (int i = 0; i < size; i++) {
-		auto alien = new Alien(i, skin);
+	void * skin = SkinLoader::getSkin("gfx/Little Invader.png");
+	for (unsigned int i = 0; i < size; i++) {
+		Alien * alien = new Alien(i, skin);
 		this->aliens.push_front(alien);
 	}
 }

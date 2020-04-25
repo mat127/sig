@@ -121,6 +121,7 @@
     <ClInclude Include="src\game\SingleSkinGameActor.h" />
     <ClInclude Include="src\game\SpaceInvadersGame.h" />
     <ClInclude Include="src\util\SkinLoader.h" />
+    <ClInclude Include="src\util\Vector.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

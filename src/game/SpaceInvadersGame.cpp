@@ -13,6 +13,7 @@ SpaceInvadersGame::SpaceInvadersGame() :
 void SpaceInvadersGame::run() {
 	while (!WantQuit() && !IsKeyDown(VK_ESCAPE)) {
 		this->tick();
+		this->checkCollisions();
 		this->draw();
 	}
 }
@@ -27,4 +28,26 @@ void SpaceInvadersGame::draw() {
 	this->ship.draw();
 	this->aliens.draw();
 	Flip();
+}
+
+void SpaceInvadersGame::checkCollisions() {
+	this->checkAlienBulletHits();
+	this->checkShipAlienCollisions();
+}
+
+void SpaceInvadersGame::checkAlienBulletHits() {
+	ShipGun & gun = this->ship.getGun();
+	std::forward_list<Alien*> dead;
+	for (auto it = this->aliens.begin(); it != this->aliens.end(); it++) {
+		if (gun.hit(**it))
+			dead.push_front(*it);
+	}
+	for (auto it = dead.begin(); it != dead.end(); it++) {
+		this->aliens.remove(*it);
+	}
+}
+
+void SpaceInvadersGame::checkShipAlienCollisions() {
+
+
 }

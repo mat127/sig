@@ -44,11 +44,14 @@ private:
 
 	void tickBullets(unsigned int time);
 
+	void remove(Bullet * bullet);
 public:
 	ShipGun(const PlayerShip & ship) :
 		ship(ship), bullets(), loading(15) {}
 	~ShipGun();
 	virtual void tick(unsigned int time);
 	virtual void draw();
+
+	bool hit(const SingleSkinGameActor & actor);
 };
 

@@ -8,7 +8,7 @@ public:
 	Bullet(void * skin);
 	virtual void tick(unsigned int time);
 	inline bool missed() const {
-		return this->position[1] < 0;
+		return this->position.y < 0;
 	}
 };
 

@@ -13,5 +13,16 @@ public:
 
 	virtual void tick(unsigned int time);
 	virtual void draw();
+
+	std::forward_list<Alien *>::iterator begin() {
+		return aliens.begin();
+	}
+	std::forward_list<Alien *>::iterator end() {
+		return aliens.end();
+	}
+	void remove(Alien * alien) {
+		aliens.remove(alien);
+		delete alien;
+	}
 };
 

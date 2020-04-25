@@ -29,7 +29,7 @@ void PlayerShip::draw() {
 }
 
 void PlayerShip::rotate(unsigned int time) {
-	this->setAngle(M_PI + sin(time*0.1)*0.1);
+	this->setAngle(M_PI + sin(time*0.1f)*0.1f);
 }
 
 bool PlayerShip::canMoveLeft() {

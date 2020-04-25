@@ -31,4 +31,6 @@ public:
 	}
 
 	void rotate(unsigned int time);
+
+	ShipGun & getGun() { return this->gun; }
 };

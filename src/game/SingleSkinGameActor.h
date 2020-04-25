@@ -1,47 +1,45 @@
 #pragma once
+#include <algorithm>
+
 #include "GameActor.h"
+#include "util/Vector.h"
 
 class SingleSkinGameActor : public GameActor {
 protected:
 	void * skin;
-	int position[2];
-	unsigned int size[2];
+	Vector<int> position;
+	Vector<unsigned int> size;
 	float angle;
 
 public:
 	SingleSkinGameActor(void * skin);
 	SingleSkinGameActor(const char * skinFilename);
 
-	inline const int * getPosition() const {
+	const Vector<int> & getPosition() const {
 		return this->position;
 	}
 
-	inline void setPosition(const int x, const int y) {
-		this->position[0] = x;
-		this->position[1] = y;
+	void setPosition(const int x, const int y) {
+		this->position.set(x,y);
 	}
 
-	inline void setPosition(const int position[]) {
-		this->position[0] = position[0];
-		this->position[1] = position[1];
+	void setPosition(const Vector<int> & position) {
+		this->position = position;
 	}
 
-	inline void move(const int dx, const int dy) {
-		this->position[0] += dx;
-		this->position[1] += dy;
+	void move(const int dx, const int dy) {
+		this->position += Vector<int>(dx, dy);
 	}
 
-	inline void setSize(unsigned int dx, unsigned int dy) {
-		this->size[0] = dx;
-		this->size[1] = dy;
+	void setSize(const unsigned int dx, const unsigned int dy) {
+		this->size.set(dx, dy);
 	}
 
-	inline void setSize(unsigned int size) {
-		this->size[0] = size;
-		this->size[1] = size;
+	void setSize(const unsigned int size) {
+		this->setSize(size, size);
 	}
 
-	inline void setAngle(float angle) {
+	inline void setAngle(const float angle) {
 		this->angle = angle;
 	}
 
@@ -49,9 +47,14 @@ public:
 		this->angle += angle;
 	}
 
-	inline int getLeftBound() { return this->position[0] - this->size[0]; }
-	inline int getRightBound() { return this->position[0] + this->size[0]; }
+	inline int getLeftBound() { return this->position.x - this->size.x; }
+	inline int getRightBound() { return this->position.x + this->size.x; }
+
+	float getDistanceTo(const SingleSkinGameActor & actor) const;
+	Vector<int> getOffsetTo(const SingleSkinGameActor & actor) const;
+	unsigned int getRadius() const;
 
 	virtual void draw();
-};
 
+	bool hit(const SingleSkinGameActor & actor) const;
+};

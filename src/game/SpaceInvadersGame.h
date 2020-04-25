@@ -8,10 +8,15 @@ private:
 	PlayerShip ship;
 	AlienFleet aliens;
 
+	void tick();
+	void draw();
+
+	void checkCollisions();
+	void checkAlienBulletHits();
+	void checkShipAlienCollisions();
+
 public:
 	SpaceInvadersGame();
 	void run();
-	void tick();
-	void draw();
 };
 

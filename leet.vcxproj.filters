@@ -84,5 +84,8 @@
     <ClInclude Include="src\util\SkinLoader.h">
       <Filter>Source Files\util</Filter>
     </ClInclude>
+    <ClInclude Include="src\util\Vector.h">
+      <Filter>Source Files\util</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
