@@ -47,6 +47,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <CodeAnalysisRules />
     <CodeAnalysisRuleAssemblies />
+    <IncludePath>.;src;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>Release\</OutDir>
@@ -97,29 +98,29 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Alien.cpp" />
-    <ClCompile Include="AlienFleet.cpp" />
-    <ClCompile Include="Bullet.cpp" />
-    <ClCompile Include="ShipGun.cpp" />
-    <ClCompile Include="SingleSkinGameActor.cpp" />
-    <ClCompile Include="SkinLoader.cpp" />
-    <ClCompile Include="SpaceInvadersGame.cpp" />
     <ClCompile Include="lib\leetlib.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="PlayerShip.cpp" />
+    <ClCompile Include="src\actor\Alien.cpp" />
+    <ClCompile Include="src\actor\AlienFleet.cpp" />
+    <ClCompile Include="src\actor\Bullet.cpp" />
+    <ClCompile Include="src\actor\PlayerShip.cpp" />
+    <ClCompile Include="src\actor\ShipGun.cpp" />
+    <ClCompile Include="src\game\SingleSkinGameActor.cpp" />
+    <ClCompile Include="src\game\SpaceInvadersGame.cpp" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\util\SkinLoader.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Alien.h" />
-    <ClInclude Include="AlienFleet.h" />
-    <ClInclude Include="Bullet.h" />
-    <ClInclude Include="ShipGun.h" />
-    <ClInclude Include="SingleSkinGameActor.h" />
-    <ClInclude Include="SkinLoader.h" />
-    <ClInclude Include="SpaceInvadersGame.h" />
-    <ClInclude Include="GameActor.h" />
-    <ClInclude Include="GameObject.h" />
     <ClInclude Include="lib\leetlib.h" />
-    <ClInclude Include="PlayerShip.h" />
+    <ClInclude Include="src\actor\Alien.h" />
+    <ClInclude Include="src\actor\AlienFleet.h" />
+    <ClInclude Include="src\actor\Bullet.h" />
+    <ClInclude Include="src\actor\PlayerShip.h" />
+    <ClInclude Include="src\actor\ShipGun.h" />
+    <ClInclude Include="src\game\GameActor.h" />
+    <ClInclude Include="src\game\GameObject.h" />
+    <ClInclude Include="src\game\SingleSkinGameActor.h" />
+    <ClInclude Include="src\game\SpaceInvadersGame.h" />
+    <ClInclude Include="src\util\SkinLoader.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

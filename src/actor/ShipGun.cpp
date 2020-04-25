@@ -1,8 +1,8 @@
 #include "lib/leetlib.h"
 
 #include "ShipGun.h"
-#include "SkinLoader.h"
 #include "PlayerShip.h"
+#include "util/SkinLoader.h"
 
 ShipGun::~ShipGun() {
 	for (auto it = this->bullets.begin(); it != this->bullets.end(); it++) {

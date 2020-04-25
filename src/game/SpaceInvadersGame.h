@@ -1,6 +1,6 @@
 #pragma once
-#include "PlayerShip.h"
-#include "AlienFleet.h"
+#include "actor/PlayerShip.h"
+#include "actor/AlienFleet.h"
 
 class SpaceInvadersGame {
 private:

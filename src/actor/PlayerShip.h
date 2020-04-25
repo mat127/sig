@@ -1,13 +1,13 @@
 #pragma once
 #include "lib/leetlib.h"
 
-#include "SingleSkinGameActor.h"
+#include "game/SingleSkinGameActor.h"
 #include "ShipGun.h"
 
 class PlayerShip : public SingleSkinGameActor {
 private:
 	int positionRange[2];
-	unsigned int stepSize;
+	int stepSize;
 	ShipGun gun;
 
 public:

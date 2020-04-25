@@ -1,5 +1,5 @@
 #pragma once
-#include "SingleSkinGameActor.h"
+#include "game/SingleSkinGameActor.h"
 
 class Bullet : public SingleSkinGameActor {
 private:

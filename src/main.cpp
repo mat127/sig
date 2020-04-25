@@ -1,6 +1,6 @@
 #include <math.h>
 
-#include "SpaceInvadersGame.h"
+#include "game/SpaceInvadersGame.h"
 
 #include "lib/leetlib.h"
 

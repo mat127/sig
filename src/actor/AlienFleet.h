@@ -1,7 +1,7 @@
 #pragma once
 #include <forward_list>
 
-#include "GameActor.h"
+#include "game/GameActor.h"
 #include "Alien.h"
 
 class AlienFleet : public GameActor {

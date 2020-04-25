@@ -1,7 +1,7 @@
 #pragma once
 #include <forward_list>
 
-#include "SingleSkinGameActor.h"
+#include "game/SingleSkinGameActor.h"
 #include "Bullet.h"
 
 class LoadingTimer {

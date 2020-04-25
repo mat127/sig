@@ -8,36 +8,45 @@
     <Filter Include="library">
       <UniqueIdentifier>{61351c7b-6f1a-4e53-9cb4-95c3777f68e2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\game">
+      <UniqueIdentifier>{426d04be-102b-4d1b-9323-caf99ae7c944}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\actor">
+      <UniqueIdentifier>{4ec5ab22-c02d-4ad0-9933-90acff5c15e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\util">
+      <UniqueIdentifier>{1deb3985-9d5f-4d3a-89f5-6b02cab76720}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="lib\leetlib.cpp">
       <Filter>library</Filter>
     </ClCompile>
-    <ClCompile Include="PlayerShip.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="src\game\SingleSkinGameActor.cpp">
+      <Filter>Source Files\game</Filter>
     </ClCompile>
-    <ClCompile Include="SpaceInvadersGame.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="src\game\SpaceInvadersGame.cpp">
+      <Filter>Source Files\game</Filter>
     </ClCompile>
-    <ClCompile Include="Alien.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="src\actor\Alien.cpp">
+      <Filter>Source Files\actor</Filter>
     </ClCompile>
-    <ClCompile Include="SingleSkinGameActor.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="src\actor\AlienFleet.cpp">
+      <Filter>Source Files\actor</Filter>
     </ClCompile>
-    <ClCompile Include="AlienFleet.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="src\actor\Bullet.cpp">
+      <Filter>Source Files\actor</Filter>
     </ClCompile>
-    <ClCompile Include="Bullet.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="src\actor\PlayerShip.cpp">
+      <Filter>Source Files\actor</Filter>
     </ClCompile>
-    <ClCompile Include="ShipGun.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="src\actor\ShipGun.cpp">
+      <Filter>Source Files\actor</Filter>
     </ClCompile>
-    <ClCompile Include="SkinLoader.cpp">
+    <ClCompile Include="src\util\SkinLoader.cpp">
+      <Filter>Source Files\util</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -45,15 +54,35 @@
     <ClInclude Include="lib\leetlib.h">
       <Filter>library</Filter>
     </ClInclude>
-    <ClInclude Include="GameObject.h" />
-    <ClInclude Include="GameActor.h" />
-    <ClInclude Include="PlayerShip.h" />
-    <ClInclude Include="SpaceInvadersGame.h" />
-    <ClInclude Include="Alien.h" />
-    <ClInclude Include="SingleSkinGameActor.h" />
-    <ClInclude Include="AlienFleet.h" />
-    <ClInclude Include="Bullet.h" />
-    <ClInclude Include="ShipGun.h" />
-    <ClInclude Include="SkinLoader.h" />
+    <ClInclude Include="src\game\GameActor.h">
+      <Filter>Source Files\game</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\GameObject.h">
+      <Filter>Source Files\game</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\SingleSkinGameActor.h">
+      <Filter>Source Files\game</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\SpaceInvadersGame.h">
+      <Filter>Source Files\game</Filter>
+    </ClInclude>
+    <ClInclude Include="src\actor\Alien.h">
+      <Filter>Source Files\actor</Filter>
+    </ClInclude>
+    <ClInclude Include="src\actor\AlienFleet.h">
+      <Filter>Source Files\actor</Filter>
+    </ClInclude>
+    <ClInclude Include="src\actor\Bullet.h">
+      <Filter>Source Files\actor</Filter>
+    </ClInclude>
+    <ClInclude Include="src\actor\PlayerShip.h">
+      <Filter>Source Files\actor</Filter>
+    </ClInclude>
+    <ClInclude Include="src\actor\ShipGun.h">
+      <Filter>Source Files\actor</Filter>
+    </ClInclude>
+    <ClInclude Include="src\util\SkinLoader.h">
+      <Filter>Source Files\util</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
