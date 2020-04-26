@@ -2,12 +2,12 @@
 #include "GameObject.h"
 #include "widget/TextWidget.h"
 
-class SpaceInvadersGame;
+class SpaceBattle;
 struct GameStats;
 
-class GameWidgets : public GameObject {
+class SpaceBattleWidgets : public GameObject {
 private:
-	const SpaceInvadersGame & game;
+	const SpaceBattle & battle;
 
 	TextWidget score;
 	TextWidget lives;
@@ -16,7 +16,7 @@ private:
 	void drawLives(const GameStats & stats);
 
 public:
-	GameWidgets(const SpaceInvadersGame & game);
+	SpaceBattleWidgets(const SpaceBattle & game);
 	virtual void draw();
 };
 

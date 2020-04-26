@@ -17,8 +17,7 @@ struct bullet
 bullet bullets[10];
 
 void Game() {
-	SpaceInvadersGame game;
-	game.run();
+	SpaceInvadersGame().run();
 }
 
 void AnotherOldGame()

@@ -18,7 +18,7 @@ void TextWidget::draw() {
 				0xffffffff
 			);
 		}
-		position.x += this->charSize;
+		position.x += this->charSize * this->spacingFactor;
 	}
 }
 
@@ -41,4 +41,14 @@ void TextWidget::format(const char * format, ...) {
 	va_start(args, format);
 	this->format(format, args);
 	va_end(args);
+}
+
+void TextWidget::setCenter(int x, int y) {
+	this->origin.set(x, y);
+	this->origin.x -= this->getWidth() / 2;
+}
+
+int TextWidget::getWidth() const {
+	size_t charCount = this->text.length();
+	return this->charSize * this->spacingFactor * charCount;
 }

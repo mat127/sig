@@ -49,20 +49,20 @@
     <ClCompile Include="src\util\SkinLoader.cpp">
       <Filter>Source Files\util</Filter>
     </ClCompile>
-    <ClCompile Include="src\main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\widget\TextWidget.cpp">
       <Filter>Source Files\widget</Filter>
     </ClCompile>
     <ClCompile Include="src\util\Font.cpp">
       <Filter>Source Files\util</Filter>
     </ClCompile>
-    <ClCompile Include="src\game\GameWidgets.cpp">
-      <Filter>Source Files\game</Filter>
-    </ClCompile>
     <ClCompile Include="src\widget\WidgetScreen.cpp">
       <Filter>Source Files\widget</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game\SpaceBattle.cpp">
+      <Filter>Source Files\game</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game\SpaceBattleWidgets.cpp">
+      <Filter>Source Files\game</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -108,14 +108,17 @@
     <ClInclude Include="src\util\Font.h">
       <Filter>Source Files\util</Filter>
     </ClInclude>
-    <ClInclude Include="src\game\GameWidgets.h">
-      <Filter>Source Files\game</Filter>
-    </ClInclude>
     <ClInclude Include="src\game\GameStats.h">
       <Filter>Source Files\game</Filter>
     </ClInclude>
     <ClInclude Include="src\widget\WidgetScreen.h">
       <Filter>Source Files\widget</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\SpaceBattle.h">
+      <Filter>Source Files\game</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\SpaceBattleWidgets.h">
+      <Filter>Source Files\game</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
