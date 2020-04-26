@@ -38,8 +38,10 @@ class GameOver : public WidgetScreen {
 private:
 	const GameStats & stats;
 	HighScore & highScore;
+
 	TextWidget gameOver;
 	TextWidget score;
+	TextWidget whatNext;
 
 	void newHighScore();
 	void normalScore();
@@ -59,6 +61,11 @@ GameOver::GameOver(const GameStats & stats, HighScore & highScore) :
 
 	score.charSize = 16;
 	this->add(&score);
+
+	whatNext.text = "press space bar for a new game";
+	whatNext.charSize = 16;
+	whatNext.setCenter(SCREEN_X / 2, 450);
+	this->add(&whatNext);
 }
 
 bool GameOver::show() {
