@@ -1,6 +1,7 @@
 #include "lib/leetlib.h"
 
 #include "SpaceBattle.h"
+#include "util/JukeBox.h"
 
 SpaceBattle::SpaceBattle(const HighScore & highScore) :
 	ship(400),
@@ -46,26 +47,32 @@ void SpaceBattle::checkCollisions() {
 void SpaceBattle::checkAlienBulletHits() {
 	ShipGun & gun = this->ship.getGun();
 	std::forward_list<Alien*> dead;
-	for (auto it = this->aliens.begin(); it != this->aliens.end(); it++) {
-		if (gun.hit(**it))
-			dead.push_front(*it);
+	for(Alien * alien : aliens) {
+		if (gun.hit(*alien))
+			dead.push_front(alien);
 	}
 	this->killed(dead);
 }
 
 void SpaceBattle::killed(const std::forward_list<Alien*> & aliens) {
-	for (auto it = aliens.begin(); it != aliens.end(); it++) {
-		this->stats.killed(**it);
-		this->aliens.remove(*it);
+	for (auto alien: aliens) {
+		JukeBox::alienExplosion();
+		this->stats.killed(*alien);
+		this->aliens.remove(alien);
 	}
 }
 
 void SpaceBattle::checkShipAlienCollisions() {
-	for (auto it = this->aliens.begin(); it != this->aliens.end(); it++) {
-		if ((*it)->hit(this->ship)) {
+	for (auto alien: this->aliens) {
+		if (alien->hit(this->ship)) {
 			this->playerDead();
-			this->aliens.remove(*it);
+			this->aliens.remove(alien);
 			return;
 		}
 	}
+}
+
+void SpaceBattle::playerDead() {
+	JukeBox::playerExplosion();
+	this->stats.playerDied();
 }

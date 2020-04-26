@@ -2,6 +2,7 @@
 
 #include "SpaceInvadersGame.h"
 #include "SpaceBattle.h"
+#include "util/JukeBox.h"
 #include "widget/WidgetScreen.h"
 
 void Game() {
@@ -87,6 +88,8 @@ void GameOver::normalScore() {
 }
 
 void SpaceInvadersGame::run() {
+	JukeBox::initialize();
+
 	if (!Intro().show())
 		return;
 

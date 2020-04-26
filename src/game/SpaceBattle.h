@@ -24,7 +24,7 @@ private:
 
 	void killed(const std::forward_list<Alien*> & aliens);
 
-	void playerDead() { this->stats.playerDied(); }
+	void playerDead();
 	bool isOver() const { return !this->stats.isPlayerAlive(); }
 
 public:

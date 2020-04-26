@@ -67,6 +67,9 @@
     <ClCompile Include="src\game\HighScore.cpp">
       <Filter>Source Files\game</Filter>
     </ClCompile>
+    <ClCompile Include="src\util\JukeBox.cpp">
+      <Filter>Source Files\util</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="lib\leetlib.h">
@@ -125,6 +128,9 @@
     </ClInclude>
     <ClInclude Include="src\game\HighScore.h">
       <Filter>Source Files\game</Filter>
+    </ClInclude>
+    <ClInclude Include="src\util\JukeBox.h">
+      <Filter>Source Files\util</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

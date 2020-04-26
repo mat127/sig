@@ -5,7 +5,7 @@ class Bullet : public SingleSkinGameActor {
 private:
 	unsigned int speed;
 public:
-	Bullet(void * skin);
+	Bullet();
 	virtual void tick(unsigned int time);
 	inline bool missed() const {
 		return this->position.y < 0;

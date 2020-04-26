@@ -1,13 +1,14 @@
+
 #include "lib/leetlib.h"
 
 #include "ShipGun.h"
 #include "PlayerShip.h"
 #include "util/SkinLoader.h"
+#include "util/JukeBox.h"
 
 ShipGun::~ShipGun() {
-	for (auto it = this->bullets.begin(); it != this->bullets.end(); it++) {
-		delete (*it);
-	}
+	for(Bullet * b: this->bullets)
+		delete b;
 }
 
 void ShipGun::remove(Bullet * bullet) {
@@ -25,21 +26,17 @@ void ShipGun::tick(unsigned int time) {
 	this->tickBullets(time);
 }
 
-static bool _bulletMissed(const Bullet * bullet) {
-	return bullet->missed();
-}
-
 void ShipGun::tickBullets(unsigned int time) {
-	this->bullets.remove_if(_bulletMissed);
-	for (auto it = this->bullets.begin(); it != this->bullets.end(); it++) {
-		(*it)->tick(time);
-	}
+	this->bullets.remove_if(
+		[](Bullet * b) { return b->missed(); }
+	);
+	for(Bullet * b: this->bullets)
+		b->tick(time);
 }
 
 void ShipGun::draw() {
-	for (auto it = this->bullets.begin(); it != this->bullets.end(); it++) {
-		(*it)->draw();
-	}
+	for (Bullet * b : this->bullets)
+		b->draw();
 }
 
 inline void ShipGun::doLoading() {
@@ -55,17 +52,23 @@ inline bool ShipGun::isLoaded() {
 }
 
 void ShipGun::shoot() {
-	auto bullet = new Bullet(SkinLoader::getSkin("gfx/bullet.png"));
-	const Vector<int> & position = this->ship.getPosition();
-	bullet->setPosition(position);
-	this->bullets.push_front(bullet);
+	auto bullet = this->createBullet();
+	JukeBox::shoot();
 	this->loading.restart();
 }
 
+Bullet * ShipGun::createBullet() {
+	Bullet * bullet = new Bullet();
+	const Vector<int> & position = this->ship.getPosition();
+	bullet->setPosition(position);
+	this->bullets.push_front(bullet);
+	return bullet;
+}
+
 bool ShipGun::hit(const SingleSkinGameActor & actor) {
-	for (auto it = this->bullets.begin(); it != this->bullets.end(); it++) {
-		if ((*it)->hit(actor)) {
-			this->remove(*it);
+	for(Bullet * b : this->bullets) {
+		if(b->hit(actor)) {
+			this->remove(b);
 			return true;
 		}
 	}

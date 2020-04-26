@@ -3,8 +3,9 @@
 
 #include "Alien.h"
 
-Alien::Alien(unsigned int id, void * skin) :
-	SingleSkinGameActor(skin), id(id)
+Alien::Alien(unsigned int id) :
+	SingleSkinGameActor("gfx/Little Invader.png"),
+	id(id)
 {
 	this->basePosition.x = (id % 10) * 60 + 120;
 	this->basePosition.y = (id / 10) * 60 + 70;

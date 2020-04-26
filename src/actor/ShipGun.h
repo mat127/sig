@@ -44,7 +44,9 @@ private:
 
 	void tickBullets(unsigned int time);
 
+	Bullet * createBullet();
 	void remove(Bullet * bullet);
+
 public:
 	ShipGun(const PlayerShip & ship) :
 		ship(ship), bullets(), loading(15) {}

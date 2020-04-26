@@ -110,6 +110,7 @@
     <ClCompile Include="src\game\SpaceBattle.cpp" />
     <ClCompile Include="src\game\SpaceInvadersGame.cpp" />
     <ClCompile Include="src\util\Font.cpp" />
+    <ClCompile Include="src\util\JukeBox.cpp" />
     <ClCompile Include="src\util\SkinLoader.cpp" />
     <ClCompile Include="src\widget\TextWidget.cpp" />
     <ClCompile Include="src\widget\WidgetScreen.cpp" />
@@ -130,6 +131,7 @@
     <ClInclude Include="src\game\SpaceBattle.h" />
     <ClInclude Include="src\game\SpaceInvadersGame.h" />
     <ClInclude Include="src\util\Font.h" />
+    <ClInclude Include="src\util\JukeBox.h" />
     <ClInclude Include="src\util\SkinLoader.h" />
     <ClInclude Include="src\util\Vector.h" />
     <ClInclude Include="src\widget\TextWidget.h" />
