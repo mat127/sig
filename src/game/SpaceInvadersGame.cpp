@@ -52,6 +52,8 @@ private:
 	TextWidget score;
 	TextWidget whatNext;
 
+	int soundLoop;
+
 	void newHighScore();
 	void normalScore();
 
@@ -82,17 +84,21 @@ bool GameOver::show() {
 		this->newHighScore();
 	else
 		this->normalScore();
-	return WidgetScreen::show();
+	bool result = WidgetScreen::show();
+	JukeBox::stop(this->soundLoop);
+	return result;
 }
 
 void GameOver::newHighScore() {
 	this->score.format("congrats new high score %06u", this->highScore.value);
 	score.setCenter(SCREEN_X / 2, 350);
+	this->soundLoop = JukeBox::newHighScore();
 }
 
 void GameOver::normalScore() {
 	score.format("your score %06u", this->stats.score);
 	score.setCenter(SCREEN_X / 2, 350);
+	this->soundLoop = JukeBox::gameOver();
 }
 
 void SpaceInvadersGame::run() {

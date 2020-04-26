@@ -8,11 +8,15 @@ private:
 	static void * _playerExplosion;
 
 	static void * _intro;
+	static void * _gameOver;
+	static void * _newHighScore;
 
 public:
 	static void initialize();
 
 	static int intro();
+	static int gameOver();
+	static int newHighScore();
 
 	static int shoot();
 	static int alienExplosion();
