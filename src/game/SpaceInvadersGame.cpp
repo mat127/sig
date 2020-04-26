@@ -16,6 +16,7 @@ private:
 	TextWidget start;
 public:
 	Intro();
+	bool show();
 };
 
 Intro::Intro() {
@@ -33,6 +34,13 @@ Intro::Intro() {
 	start.charSize = 16;
 	start.setCenter(SCREEN_X / 2, 500);
 	this->add(&start);
+}
+
+bool Intro::show() {
+	int snd = JukeBox::intro();
+	bool result = WidgetScreen::show();
+	JukeBox::stop(snd);
+	return result;
 }
 
 class GameOver : public WidgetScreen {
