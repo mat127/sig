@@ -26,5 +26,5 @@ SpaceBattleWidgets::SpaceBattleWidgets(const SpaceBattle & battle) :
 void SpaceBattleWidgets::draw() {
 	this->scoreWidget.draw("score %06u", stats.score);
 	this->livesWidget.draw("lives %1u", stats.lives);
-	this->highScoreWidget.draw("high score %06u", highScore.get());
+	this->highScoreWidget.draw("high score %06u", highScore.value);
 }

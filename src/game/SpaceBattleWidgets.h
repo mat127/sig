@@ -4,7 +4,7 @@
 
 class SpaceBattle;
 struct GameStats;
-class HighScore;
+struct HighScore;
 
 class SpaceBattleWidgets : public GameObject {
 private:

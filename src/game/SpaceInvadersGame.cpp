@@ -70,7 +70,7 @@ bool GameOver::show() {
 }
 
 void GameOver::newHighScore() {
-	this->score.format("congrats new high score %06u", this->highScore.get());
+	this->score.format("congrats new high score %06u", this->highScore.value);
 	score.setCenter(SCREEN_X / 2, 350);
 }
 

@@ -7,7 +7,7 @@ const std::string HighScore::fileName = "hs.bin";
 
 HighScore::HighScore() {
 	if(!this->load())
-		this->set(0u);
+		this->value = 0u;
 }
 
 bool HighScore::save() const {
@@ -26,4 +26,12 @@ bool HighScore::load() {
 	is.read((char*)&value, sizeof(value));
 	is.close();
 	return is.good();
+}
+
+bool HighScore::adjust(unsigned int score) {
+	if (score <= this->value)
+		return false;
+	this->value = score;
+	this->save();
+	return true;
 }
