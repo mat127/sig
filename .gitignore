@@ -264,3 +264,4 @@ __pycache__/
 /src/collision/CollisionTargetShape.cpp
 /src/collision/CollisionTarget.h
 /src/collision/CollisionTarget.cpp
+/hs.bin

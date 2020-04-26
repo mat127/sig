@@ -28,7 +28,9 @@ private:
 	bool isOver() const { return !this->stats.isPlayerAlive(); }
 
 public:
-	SpaceBattle();
+	const HighScore & highScore;
+
+	SpaceBattle(const HighScore & highScore);
 	bool run();
 
 	const GameStats & getStats() const { return this->stats; }

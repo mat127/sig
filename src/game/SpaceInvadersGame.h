@@ -1,9 +1,9 @@
 #pragma once
+#include "HighScore.h" 
 
 class SpaceInvadersGame {
 private:
-	bool intro();
-	bool playAgain();
+	HighScore highScore;
 public:
 	void run();
 };

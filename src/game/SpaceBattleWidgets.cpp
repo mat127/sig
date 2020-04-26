@@ -1,28 +1,30 @@
+#include "lib/leetlib.h"
+
 #include "SpaceBattleWidgets.h"
 #include "SpaceBattle.h"
 #include "GameStats.h"
+#include "HighScore.h"
 
-SpaceBattleWidgets::SpaceBattleWidgets(const SpaceBattle & battle)
-	: battle(battle)
+SpaceBattleWidgets::SpaceBattleWidgets(
+	const GameStats & stats,
+	const HighScore & highScore
+) : stats(stats), highScore(highScore)
 {
-	this->score.origin.set(500, 20);
-	this->lives.origin.set(300, 20);
+	this->scoreWidget.origin.set(550, 20);
+	this->scoreWidget.spacingFactor = 1.1f;
+
+	this->livesWidget.origin.set(350, 20);
+	this->livesWidget.spacingFactor = 1.f;
+
+	this->highScoreWidget.origin.set(10, 20);
+	this->highScoreWidget.spacingFactor = 1.1f;
 }
+
+SpaceBattleWidgets::SpaceBattleWidgets(const SpaceBattle & battle) :
+  SpaceBattleWidgets(battle.getStats(), battle.highScore) {}
 
 void SpaceBattleWidgets::draw() {
-	const GameStats & stats = this->battle.getStats();
-	this->drawScore(stats);
-	this->drawLives(stats);
-}
-
-void SpaceBattleWidgets::drawScore(const GameStats & stats) {
-	char buffer[64];
-	snprintf(buffer, sizeof(buffer), "score %06u", stats.score);
-	this->score.draw(buffer);
-}
-
-void SpaceBattleWidgets::drawLives(const GameStats & stats) {
-	char buffer[64];
-	snprintf(buffer, sizeof(buffer), "lives %1u", stats.lives);
-	this->lives.draw(buffer);
+	this->scoreWidget.draw("score %06u", stats.score);
+	this->livesWidget.draw("lives %1u", stats.lives);
+	this->highScoreWidget.draw("high score %06u", highScore.get());
 }

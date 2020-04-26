@@ -2,11 +2,12 @@
 
 #include "SpaceBattle.h"
 
-SpaceBattle::SpaceBattle() :
+SpaceBattle::SpaceBattle(const HighScore & highScore) :
 	ship(400),
 	aliens(50),
 	time(0u),
-	widgets(*this)
+	highScore(highScore),
+	widgets(stats, highScore)
 {
 	ship.setPositionRange(0, SCREEN_X);
 }

@@ -64,6 +64,9 @@
     <ClCompile Include="src\game\SpaceBattleWidgets.cpp">
       <Filter>Source Files\game</Filter>
     </ClCompile>
+    <ClCompile Include="src\game\HighScore.cpp">
+      <Filter>Source Files\game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="lib\leetlib.h">
@@ -118,6 +121,9 @@
       <Filter>Source Files\game</Filter>
     </ClInclude>
     <ClInclude Include="src\game\SpaceBattleWidgets.h">
+      <Filter>Source Files\game</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\HighScore.h">
       <Filter>Source Files\game</Filter>
     </ClInclude>
   </ItemGroup>

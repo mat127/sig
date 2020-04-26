@@ -104,6 +104,7 @@
     <ClCompile Include="src\actor\Bullet.cpp" />
     <ClCompile Include="src\actor\PlayerShip.cpp" />
     <ClCompile Include="src\actor\ShipGun.cpp" />
+    <ClCompile Include="src\game\HighScore.cpp" />
     <ClCompile Include="src\game\SpaceBattleWidgets.cpp" />
     <ClCompile Include="src\game\SingleSkinGameActor.cpp" />
     <ClCompile Include="src\game\SpaceBattle.cpp" />
@@ -123,6 +124,7 @@
     <ClInclude Include="src\game\GameActor.h" />
     <ClInclude Include="src\game\GameObject.h" />
     <ClInclude Include="src\game\GameStats.h" />
+    <ClInclude Include="src\game\HighScore.h" />
     <ClInclude Include="src\game\SpaceBattleWidgets.h" />
     <ClInclude Include="src\game\SingleSkinGameActor.h" />
     <ClInclude Include="src\game\SpaceBattle.h" />

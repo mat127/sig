@@ -4,18 +4,19 @@
 
 class SpaceBattle;
 struct GameStats;
+class HighScore;
 
 class SpaceBattleWidgets : public GameObject {
 private:
-	const SpaceBattle & battle;
+	const GameStats & stats;
+	const HighScore & highScore;
 
-	TextWidget score;
-	TextWidget lives;
-
-	void drawScore(const GameStats & stats);
-	void drawLives(const GameStats & stats);
+	TextWidget scoreWidget;
+	TextWidget livesWidget;
+	TextWidget highScoreWidget;
 
 public:
+	SpaceBattleWidgets::SpaceBattleWidgets(const GameStats & stats, const HighScore & highScore);
 	SpaceBattleWidgets(const SpaceBattle & game);
 	virtual void draw();
 };
