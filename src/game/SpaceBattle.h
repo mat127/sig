@@ -1,38 +1,44 @@
 #pragma once
-#include <forward_list>
 
+#include "GameEngine.h"
 #include "GameStats.h"
 #include "actor/PlayerShip.h"
-#include "actor/AlienFleet.h"
 #include "SpaceBattleWidgets.h"
 
-class SpaceBattle {
+class SpaceBattle : public GameEngine {
 private:
-	unsigned int time;
-	PlayerShip ship;
-	AlienFleet aliens;
+	PlayerShip * ship;
 
 	SpaceBattleWidgets widgets;
 	GameStats stats;
 
-	void tick();
-	void draw();
+	PlayerShip * createShip();
+	void createAlienFleet();
 
-	void checkCollisions();
-	void checkAlienBulletHits();
-	void checkShipAlienCollisions();
-
-	void killed(const std::forward_list<Alien*> & aliens);
-
-	void playerDead();
-	bool isOver() const { return !this->stats.isPlayerAlive(); }
+protected:
+	virtual bool isOver() const {
+		return !this->stats.isPlayerAlive();
+	}
+	virtual void draw();
 
 public:
 	const HighScore & highScore;
 
 	SpaceBattle(const HighScore & highScore);
-	bool run();
 
-	const GameStats & getStats() const { return this->stats; }
+	PlayerShip * getShip() {
+		return this->ship;
+	}
+	void setShip(PlayerShip * ship);
+	void removeShip(PlayerShip * ship);
+	void nextShip();
+
+	void killed(const Alien & alien) {
+		this->stats.killed(alien);
+	}
+
+	const GameStats & getStats() const {
+		return this->stats;
+	}
 };
 

@@ -1,8 +1,15 @@
 #pragma once
-#include "GameObject.h"
+#include "Drawable.h"
 
-class GameActor : public GameObject {
+class GameEngine;
+
+class GameActor : public Drawable {
 public:
-	virtual void tick(unsigned int time) = 0;
+	virtual void tick(GameEngine & engine) {
+		// idle
+	}
+	virtual void check(GameEngine & engine) {
+		// nothing to check by default
+	}
 };
 

@@ -1,12 +1,12 @@
 #pragma once
-#include "GameObject.h"
+#include "Drawable.h"
 #include "widget/TextWidget.h"
 
 class SpaceBattle;
 struct GameStats;
 struct HighScore;
 
-class SpaceBattleWidgets : public GameObject {
+class SpaceBattleWidgets : public Drawable {
 private:
 	const GameStats & stats;
 	const HighScore & highScore;

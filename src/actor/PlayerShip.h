@@ -1,25 +1,66 @@
 #pragma once
 #include "lib/leetlib.h"
 
-#include "game/SingleSkinGameActor.h"
-#include "ShipGun.h"
+#include "SkinGameActor.h"
 
-class PlayerShip : public SingleSkinGameActor {
+class Bullet;
+class PlayerShip;
+class SpaceBattle;
+
+class Gun {
+private:
+	int counter;
+	int loadingInterval;
+
+	void doLoading() {
+		if (this->counter > 0)
+			this->counter--;
+	}
+	bool isLoaded() const {
+		return this->counter == 0;
+	}
+	void setLoaded() {
+		this->counter = 0;
+	}
+	void restartLoading() {
+		this->counter = this->loadingInterval;
+	}
+
+	void shoot(SpaceBattle & battle, PlayerShip & ship);
+	Bullet * createBullet(const PlayerShip & ship);
+
+public:
+	Gun(int loadingInterval) :
+		loadingInterval(loadingInterval) {}
+	void tick(SpaceBattle & battle);
+	void check(SpaceBattle & battle, PlayerShip & ship);
+};
+
+class PlayerShip : public SkinGameActor {
 private:
 	int positionRange[2];
 	int stepSize;
-	ShipGun gun;
+	Gun gun;
+
+protected:
+	virtual void * getSkin() const;
 
 public:
-	PlayerShip(unsigned int position);
+	PlayerShip();
+
+	virtual bool isA(const SpaceBattleActorType & type) {
+		return type == SHIP;
+	}
 
 	inline void setPositionRange(const int min, const int max) {
 		this->positionRange[0] = min;
 		this->positionRange[1] = max;
 	}
 
-	virtual void tick(unsigned int time);
-	virtual void draw();
+	virtual void tick(GameEngine & engine);
+	virtual void check(GameEngine & engine) {
+		this->gun.check((SpaceBattle&)engine, *this);
+	}
 
 	bool canMoveLeft();
 	bool canMoveRight();
@@ -32,5 +73,5 @@ public:
 
 	void rotate(unsigned int time);
 
-	ShipGun & getGun() { return this->gun; }
+	void explode(SpaceBattle & battle);
 };

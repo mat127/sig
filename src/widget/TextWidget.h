@@ -1,10 +1,10 @@
 #pragma once
 #include <string>
 
-#include "game/GameObject.h"
+#include "game/Drawable.h"
 #include "util/Vector.h"
 
-struct TextWidget : public GameObject {
+struct TextWidget : public Drawable {
 	Vector<int> origin;
 	unsigned int charSize;
 	float spacingFactor;

@@ -25,25 +25,16 @@
     <ClCompile Include="lib\leetlib.cpp">
       <Filter>library</Filter>
     </ClCompile>
-    <ClCompile Include="src\game\SingleSkinGameActor.cpp">
-      <Filter>Source Files\game</Filter>
-    </ClCompile>
     <ClCompile Include="src\game\SpaceInvadersGame.cpp">
       <Filter>Source Files\game</Filter>
     </ClCompile>
     <ClCompile Include="src\actor\Alien.cpp">
       <Filter>Source Files\actor</Filter>
     </ClCompile>
-    <ClCompile Include="src\actor\AlienFleet.cpp">
-      <Filter>Source Files\actor</Filter>
-    </ClCompile>
     <ClCompile Include="src\actor\Bullet.cpp">
       <Filter>Source Files\actor</Filter>
     </ClCompile>
     <ClCompile Include="src\actor\PlayerShip.cpp">
-      <Filter>Source Files\actor</Filter>
-    </ClCompile>
-    <ClCompile Include="src\actor\ShipGun.cpp">
       <Filter>Source Files\actor</Filter>
     </ClCompile>
     <ClCompile Include="src\util\SkinLoader.cpp">
@@ -70,6 +61,18 @@
     <ClCompile Include="src\util\JukeBox.cpp">
       <Filter>Source Files\util</Filter>
     </ClCompile>
+    <ClCompile Include="src\actor\Explosion.cpp">
+      <Filter>Source Files\actor</Filter>
+    </ClCompile>
+    <ClCompile Include="src\actor\SkinGameActor.cpp">
+      <Filter>Source Files\actor</Filter>
+    </ClCompile>
+    <ClCompile Include="src\actor\AnimatedGameActor.cpp">
+      <Filter>Source Files\actor</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game\GameEngine.cpp">
+      <Filter>Source Files\game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="lib\leetlib.h">
@@ -78,28 +81,16 @@
     <ClInclude Include="src\game\GameActor.h">
       <Filter>Source Files\game</Filter>
     </ClInclude>
-    <ClInclude Include="src\game\GameObject.h">
-      <Filter>Source Files\game</Filter>
-    </ClInclude>
-    <ClInclude Include="src\game\SingleSkinGameActor.h">
-      <Filter>Source Files\game</Filter>
-    </ClInclude>
     <ClInclude Include="src\game\SpaceInvadersGame.h">
       <Filter>Source Files\game</Filter>
     </ClInclude>
     <ClInclude Include="src\actor\Alien.h">
       <Filter>Source Files\actor</Filter>
     </ClInclude>
-    <ClInclude Include="src\actor\AlienFleet.h">
-      <Filter>Source Files\actor</Filter>
-    </ClInclude>
     <ClInclude Include="src\actor\Bullet.h">
       <Filter>Source Files\actor</Filter>
     </ClInclude>
     <ClInclude Include="src\actor\PlayerShip.h">
-      <Filter>Source Files\actor</Filter>
-    </ClInclude>
-    <ClInclude Include="src\actor\ShipGun.h">
       <Filter>Source Files\actor</Filter>
     </ClInclude>
     <ClInclude Include="src\util\SkinLoader.h">
@@ -131,6 +122,24 @@
     </ClInclude>
     <ClInclude Include="src\util\JukeBox.h">
       <Filter>Source Files\util</Filter>
+    </ClInclude>
+    <ClInclude Include="src\actor\Explosion.h">
+      <Filter>Source Files\actor</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\Drawable.h">
+      <Filter>Source Files\game</Filter>
+    </ClInclude>
+    <ClInclude Include="src\actor\SkinGameActor.h">
+      <Filter>Source Files\actor</Filter>
+    </ClInclude>
+    <ClInclude Include="src\actor\AnimatedGameActor.h">
+      <Filter>Source Files\actor</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\GameEngine.h">
+      <Filter>Source Files\game</Filter>
+    </ClInclude>
+    <ClInclude Include="src\actor\SpaceBattleActor.h">
+      <Filter>Source Files\actor</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

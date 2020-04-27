@@ -100,13 +100,14 @@
   <ItemGroup>
     <ClCompile Include="lib\leetlib.cpp" />
     <ClCompile Include="src\actor\Alien.cpp" />
-    <ClCompile Include="src\actor\AlienFleet.cpp" />
+    <ClCompile Include="src\actor\AnimatedGameActor.cpp" />
     <ClCompile Include="src\actor\Bullet.cpp" />
+    <ClCompile Include="src\actor\Explosion.cpp" />
     <ClCompile Include="src\actor\PlayerShip.cpp" />
-    <ClCompile Include="src\actor\ShipGun.cpp" />
+    <ClCompile Include="src\actor\SkinGameActor.cpp" />
+    <ClCompile Include="src\game\GameEngine.cpp" />
     <ClCompile Include="src\game\HighScore.cpp" />
     <ClCompile Include="src\game\SpaceBattleWidgets.cpp" />
-    <ClCompile Include="src\game\SingleSkinGameActor.cpp" />
     <ClCompile Include="src\game\SpaceBattle.cpp" />
     <ClCompile Include="src\game\SpaceInvadersGame.cpp" />
     <ClCompile Include="src\util\Font.cpp" />
@@ -118,16 +119,18 @@
   <ItemGroup>
     <ClInclude Include="lib\leetlib.h" />
     <ClInclude Include="src\actor\Alien.h" />
-    <ClInclude Include="src\actor\AlienFleet.h" />
+    <ClInclude Include="src\actor\AnimatedGameActor.h" />
     <ClInclude Include="src\actor\Bullet.h" />
+    <ClInclude Include="src\actor\Explosion.h" />
     <ClInclude Include="src\actor\PlayerShip.h" />
-    <ClInclude Include="src\actor\ShipGun.h" />
+    <ClInclude Include="src\actor\SkinGameActor.h" />
+    <ClInclude Include="src\actor\SpaceBattleActor.h" />
     <ClInclude Include="src\game\GameActor.h" />
-    <ClInclude Include="src\game\GameObject.h" />
+    <ClInclude Include="src\game\Drawable.h" />
+    <ClInclude Include="src\game\GameEngine.h" />
     <ClInclude Include="src\game\GameStats.h" />
     <ClInclude Include="src\game\HighScore.h" />
     <ClInclude Include="src\game\SpaceBattleWidgets.h" />
-    <ClInclude Include="src\game\SingleSkinGameActor.h" />
     <ClInclude Include="src\game\SpaceBattle.h" />
     <ClInclude Include="src\game\SpaceInvadersGame.h" />
     <ClInclude Include="src\util\Font.h" />

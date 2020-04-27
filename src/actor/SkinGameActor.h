@@ -1,19 +1,20 @@
 #pragma once
 #include <algorithm>
 
-#include "GameActor.h"
+#include "SpaceBattleActor.h"
+#include "game/Drawable.h"
 #include "util/Vector.h"
 
-class SingleSkinGameActor : public GameActor {
+class SkinGameActor : public SpaceBattleActor {
 protected:
-	void * skin;
 	Vector<int> position;
 	Vector<unsigned int> size;
 	float angle;
 
+	virtual void * getSkin() const = 0;
+
 public:
-	SingleSkinGameActor(void * skin);
-	SingleSkinGameActor(const char * skinFilename);
+	SkinGameActor();
 
 	const Vector<int> & getPosition() const {
 		return this->position;
@@ -27,8 +28,20 @@ public:
 		this->position = position;
 	}
 
+	const Vector<unsigned int> & getSize() const {
+		return this->size;
+	}
+
+	void move(const Vector<int> direction) {
+		this->position += direction;
+	}
+
 	void move(const int dx, const int dy) {
 		this->position += Vector<int>(dx, dy);
+	}
+
+	void setSize(const Vector<unsigned int> & size) {
+		this->size = size;
 	}
 
 	void setSize(const unsigned int dx, const unsigned int dy) {
@@ -50,11 +63,11 @@ public:
 	inline int getLeftBound() { return this->position.x - this->size.x; }
 	inline int getRightBound() { return this->position.x + this->size.x; }
 
-	float getDistanceTo(const SingleSkinGameActor & actor) const;
-	Vector<int> getOffsetTo(const SingleSkinGameActor & actor) const;
+	float getDistanceTo(const SkinGameActor & actor) const;
+	Vector<int> getOffsetTo(const SkinGameActor & actor) const;
 	unsigned int getRadius() const;
 
 	virtual void draw();
 
-	bool hit(const SingleSkinGameActor & actor) const;
+	bool hit(const SkinGameActor & actor) const;
 };

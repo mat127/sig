@@ -2,13 +2,13 @@
 #include <forward_list>
 #include <windows.h>
 
-#include "game/GameObject.h"
+#include "game/Drawable.h"
 
 class WidgetScreen {
 private:
-	std::forward_list<GameObject*> objects;
+	std::forward_list<Drawable*> objects;
 public:
-	void add(GameObject * object) { objects.push_front(object); }
+	void add(Drawable * object) { objects.push_front(object); }
 	bool show(int exitKey = VK_SPACE);
 	void draw();
 };
