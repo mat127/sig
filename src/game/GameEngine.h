@@ -20,13 +20,14 @@ struct AtomicStateChange {
 
 class GameEngine {
 private:
-	std::forward_list<GameActor*> actors;
 	unsigned int time;
 	AtomicStateChange pending;
 
 protected:
+	std::forward_list<GameActor*> actors;
+
 	void tick();
-	void check();
+	virtual void check();
 	void applyChanges();
 	virtual void draw();
 

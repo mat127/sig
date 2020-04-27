@@ -49,8 +49,24 @@ void Alien::check(GameEngine & engine) {
 	this->explodeSilently(battle);
 }
 
+class AlienExplosion : public Explosion {
+public:
+	AlienExplosion(const Alien & alien) :
+		Explosion(alien) {}
+	virtual void check(GameEngine & engine);
+};
+
+void AlienExplosion::check(GameEngine & engine) {
+	if (!this->isOver())
+		return;
+	SpaceBattle & battle = (SpaceBattle&)engine;
+	battle.remove(this);
+	battle.checkAlienCount();
+}
+
+
 void Alien::explodeSilently(SpaceBattle & battle) {
-	Explosion * explosion = new Explosion(*this);
+	AlienExplosion * explosion = new AlienExplosion(*this);
 	battle.remove(this);
 	battle.add(explosion);
 }

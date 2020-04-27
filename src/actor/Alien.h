@@ -20,13 +20,14 @@ protected:
 public:
 	Alien(unsigned int id);
 
-	virtual bool isA(const SpaceBattleActorType & type) {
+	virtual bool isA(const SpaceBattleActorType & type) const {
 		return type == ALIEN;
 	}
 
 	static Alien * cast(GameActor * actor) {
 		return ((SpaceBattleActor *)actor)->isA(ALIEN) ? (Alien *)actor : nullptr;
 	}
+
 	virtual void tick(GameEngine & engine);
 	virtual void check(GameEngine & engine);
 

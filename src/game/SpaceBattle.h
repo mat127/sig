@@ -36,6 +36,8 @@ public:
 	void killed(const Alien & alien) {
 		this->stats.killed(alien);
 	}
+	bool areAllAliensDead() const;
+	void checkAlienCount();
 
 	const GameStats & getStats() const {
 		return this->stats;

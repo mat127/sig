@@ -66,7 +66,7 @@ void ShipExplosion::check(GameEngine & engine) {
 	battle.remove(this);
 	battle.nextShip();
 }
-	
+
 void PlayerShip::explode(SpaceBattle & battle) {
 	ShipExplosion * explosion = new ShipExplosion(*this);
 	battle.removeShip(this);

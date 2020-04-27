@@ -9,7 +9,7 @@ enum SpaceBattleActorType {
 
 class SpaceBattleActor : public GameActor {
 public:
-	virtual bool isA(const SpaceBattleActorType & type) {
+	virtual bool isA(const SpaceBattleActorType & type) const {
 		return false;
 	}
 };

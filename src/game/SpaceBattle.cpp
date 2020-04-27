@@ -1,3 +1,5 @@
+#include <algorithm>
+
 #include "lib/leetlib.h"
 
 #include "SpaceBattle.h"
@@ -45,6 +47,17 @@ void SpaceBattle::nextShip() {
 	this->stats.playerDied();
 	if (!this->isOver())
   	    this->createShip();
+}
+
+bool SpaceBattle::areAllAliensDead() const {
+	return std::find_if(this->actors.begin(), this->actors.end(),
+		[](GameActor * a) { return Alien::cast(a) != nullptr; }
+	) == this->actors.end();
+}
+
+void SpaceBattle::checkAlienCount() {
+	if (this->areAllAliensDead())
+		this->createAlienFleet();
 }
 
 void SpaceBattle::draw() {
