@@ -9,9 +9,8 @@ struct AtomicStateChange {
 	void add(GameActor * actor) {
 		toAdd.push_front(actor);
 	}
-	void remove(GameActor * actor) {
-		toRemove.push_front(actor);
-	}
+	bool remove(GameActor * actor);
+	bool isRemoved(const GameActor * actor) const;
 	void clear() {
 		toAdd.clear();
 		toRemove.clear();
@@ -41,8 +40,8 @@ public:
 		this->pending.add(actor);
 	}
 
-	void remove(GameActor * actor) {
-		this->pending.remove(actor);
+	bool remove(GameActor * actor) {
+		return this->pending.remove(actor);
 	}
 
 	unsigned int getTime() const {

@@ -9,31 +9,29 @@ class SpaceBattle;
 
 class Gun {
 private:
-	int counter;
-	int loadingInterval;
+	static Vector<int> bulletDirections[];
 
-	void doLoading() {
-		if (this->counter > 0)
-			this->counter--;
-	}
+	PlayerShip & ship;
+	unsigned int loadingLevel;
+	unsigned int highLoadingLevel;
+
+	void doLoading();
 	bool isLoaded() const {
-		return this->counter == 0;
+		return this->loadingLevel > 0;
 	}
-	void setLoaded() {
-		this->counter = 0;
+	bool isHighlyLoaded() const {
+		return this->loadingLevel >= this->highLoadingLevel;
 	}
-	void restartLoading() {
-		this->counter = this->loadingInterval;
-	}
+	void restartLoading();
 
-	void shoot(SpaceBattle & battle, PlayerShip & ship);
-	Bullet * createBullet(const PlayerShip & ship);
+	void shoot(SpaceBattle & battle);
+	void shootSingle(SpaceBattle & battle);
+	void shootSpray(SpaceBattle & battle);
+	Bullet * createBullet(const Vector<int> & direction);
 
 public:
-	Gun(int loadingInterval) :
-		loadingInterval(loadingInterval) {}
+	Gun(PlayerShip & ship, unsigned int highLoadingLevel);
 	void tick(SpaceBattle & battle);
-	void check(SpaceBattle & battle, PlayerShip & ship);
 };
 
 class PlayerShip : public SkinGameActor {
@@ -58,9 +56,6 @@ public:
 	}
 
 	virtual void tick(GameEngine & engine);
-	virtual void check(GameEngine & engine) {
-		this->gun.check((SpaceBattle&)engine, *this);
-	}
 
 	bool canMoveLeft();
 	bool canMoveRight();

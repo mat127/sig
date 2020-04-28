@@ -21,8 +21,8 @@ public:
 	virtual void tick(GameEngine & engine);
 	virtual void check(GameEngine & engine);
 
-	void setSpeed(int dx, int dy) {
-		this->speed.set(dx, dy);
+	void setDirection(const Vector<int> & direction) {
+		this->speed = direction;
 	}
 	bool missed() const {
 		return this->position.y < 0;

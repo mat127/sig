@@ -11,16 +11,24 @@
 #include "util/JukeBox.h"
 
 #define SHIP_SKIN_FILENAME			"gfx/Big Invader.png"
-#define SHIP_SIZE					50
+#define SHIP_NORMAL_SIZE			30
 #define SHIP_STEP_SIZE				7
 
 #define SHIP_GUN_LOADING_INTERVAL	15
 #define SHIP_GUN_SHOT_DIRECTION		0,-4
 
+Vector<int> Gun::bulletDirections[] = {
+	Vector<int>(SHIP_GUN_SHOT_DIRECTION),
+	Vector<int>(SHIP_GUN_SHOT_DIRECTION) + Vector<int>(-1,0),
+	Vector<int>(SHIP_GUN_SHOT_DIRECTION) + Vector<int>(1,0)
+};
+
+#define SPRAY_BULLET_COUNT			3
+
 PlayerShip::PlayerShip() :
-	SkinGameActor(), gun(SHIP_GUN_LOADING_INTERVAL)
+	SkinGameActor(), gun(*this, SHIP_GUN_LOADING_INTERVAL)
 {
-	this->setSize(SHIP_SIZE);
+	this->setSize(SHIP_NORMAL_SIZE);
 	this->stepSize = SHIP_STEP_SIZE;
 }
 
@@ -74,28 +82,61 @@ void PlayerShip::explode(SpaceBattle & battle) {
 	JukeBox::playerExplosion();
 }
 
+Gun::Gun(PlayerShip & ship, unsigned int highLoadingLevel) :
+	ship(ship), highLoadingLevel(highLoadingLevel)
+{
+	this->restartLoading();
+}
+
 void Gun::tick(SpaceBattle & battle) {
-	this->doLoading();
-}
-
-void Gun::check(SpaceBattle & battle, PlayerShip & ship) {
-	if (!IsKeyDown(VK_SPACE))
-		this->setLoaded();
+	if (IsKeyDown(VK_SPACE))
+		this->doLoading();
 	else if (this->isLoaded())
-		this->shoot(battle, ship);
+		this->shoot(battle);
 }
 
-void Gun::shoot(SpaceBattle & battle, PlayerShip & ship) {
-	Bullet * bullet = this->createBullet(ship);
+void Gun::doLoading() {
+	if (this->loadingLevel >= this->highLoadingLevel)
+		return;
+	else
+		this->loadingLevel++;
+	this->ship.setSize(SHIP_NORMAL_SIZE + this->loadingLevel);
+	if (this->isHighlyLoaded())
+		JukeBox::highlyLoaded();
+}
+
+void Gun::restartLoading() {
+	this->loadingLevel = 0;
+	this->ship.setSize(SHIP_NORMAL_SIZE);
+}
+
+void Gun::shoot(SpaceBattle & battle) {
+	if (this->isHighlyLoaded())
+		this->shootSpray(battle);
+	else
+		this->shootSingle(battle);
+}
+
+void Gun::shootSingle(SpaceBattle & battle) {
+	Bullet * bullet = this->createBullet(bulletDirections[0]);
 	battle.add(bullet);
 	JukeBox::shoot();
 	this->restartLoading();
 }
 
-Bullet * Gun::createBullet(const PlayerShip & ship) {
+void Gun::shootSpray(SpaceBattle & battle) {
+	for (int i = 0; i < SPRAY_BULLET_COUNT; i++) {
+		Bullet * bullet = this->createBullet(bulletDirections[i]);
+		battle.add(bullet);
+	}
+	JukeBox::shoot();
+	this->restartLoading();
+}
+
+Bullet * Gun::createBullet(const Vector<int> & direction) {
 	Bullet * bullet = new Bullet();
-	const Vector<int> & position = ship.getPosition();
+	const Vector<int> & position = this->ship.getPosition();
 	bullet->setPosition(position);
-	bullet->setSpeed(SHIP_GUN_SHOT_DIRECTION);
+	bullet->setDirection(direction);
 	return bullet;
 }

@@ -64,7 +64,6 @@ void AlienExplosion::check(GameEngine & engine) {
 	battle.checkAlienCount();
 }
 
-
 void Alien::explodeSilently(SpaceBattle & battle) {
 	AlienExplosion * explosion = new AlienExplosion(*this);
 	battle.remove(this);

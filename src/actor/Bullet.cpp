@@ -42,6 +42,6 @@ void Bullet::check(GameEngine & engine) {
 
 void Bullet::kill(SpaceBattle & battle, Alien * alien) {
 	alien->explode(battle);
-	battle.killed(*alien);
-	battle.remove(this);
+	if(battle.remove(this)) // maybe hit by another bullet already
+		battle.killed(*alien);
 }

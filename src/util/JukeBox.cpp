@@ -6,6 +6,7 @@ void * JukeBox::_intro;
 void * JukeBox::_gameOver;
 void * JukeBox::_newHighScore;
 
+void * JukeBox::_highlyLoaded;
 void * JukeBox::_shoot;
 void * JukeBox::_playerExplosion;
 void * JukeBox::_alienExplosion;
@@ -15,6 +16,7 @@ void JukeBox::initialize() {
 	JukeBox::_gameOver = LoadSnd("sfx/game-over.wav", true);
 	JukeBox::_newHighScore = LoadSnd("sfx/new-high-score.wav", true);
 
+	JukeBox::_highlyLoaded = LoadSnd("sfx/highly-loaded.wav");
 	JukeBox::_shoot = LoadSnd("sfx/shoot.wav");
 	JukeBox::_playerExplosion = LoadSnd("sfx/ship-explosion.wav");
 	JukeBox::_alienExplosion = LoadSnd("sfx/invader-explosion.wav");
@@ -34,6 +36,10 @@ int JukeBox::gameOver() {
 
 int JukeBox::newHighScore() {
 	return PlaySnd(JukeBox::_newHighScore);
+}
+
+int JukeBox::highlyLoaded() {
+	return PlaySnd(JukeBox::_highlyLoaded);
 }
 
 int JukeBox::shoot() {

@@ -48,3 +48,14 @@ void GameEngine::applyChanges() {
 	}
 	this->pending.clear();
 }
+
+bool AtomicStateChange::remove(GameActor * actor) {
+	if (this->isRemoved(actor)) // to avoid duplicate removal causing memory corruption
+		return false;
+	this->toRemove.push_front(actor);
+	return true;
+}
+
+bool AtomicStateChange::isRemoved(const GameActor * actor) const {
+	return std::find(toRemove.begin(), toRemove.end(), actor) != toRemove.end();
+}
