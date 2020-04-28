@@ -25,9 +25,9 @@ private:
 protected:
 	std::forward_list<GameActor*> actors;
 
-	void tick();
+	virtual void tick();
 	virtual void check();
-	void applyChanges();
+	virtual void applyChanges();
 	virtual void draw();
 
 	virtual bool isOver() const = 0;

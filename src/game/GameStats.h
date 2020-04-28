@@ -1,10 +1,13 @@
 #pragma once
+#include "SpaceInvadersConfig.h"
 #include "actor/Alien.h"
 
 struct GameStats {
 	unsigned int lives;
 	unsigned int score;
-	GameStats() : lives(3), score(0) {}
+	GameStats() {
+		this->reset();
+	}
 	void playerDied() {
 		this->lives--;
 	}
@@ -15,7 +18,7 @@ struct GameStats {
 		this->score += alien.getScore();
 	}
 	void reset() {
-		this->lives = 3;
+		this->lives = SIG_PLAYER_LIVES_COUNT;
 		this->score = 0;
 	}
 };

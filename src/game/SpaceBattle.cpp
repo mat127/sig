@@ -2,12 +2,11 @@
 
 #include "lib/leetlib.h"
 
+#include "SpaceInvadersConfig.h"
 #include "SpaceBattle.h"
 #include "actor/PlayerShip.h"
 #include "actor/Alien.h"
 #include "util/JukeBox.h"
-
-#define FLEET_ALIEN_COUNT	50
 
 SpaceBattle::SpaceBattle(const HighScore & highScore) :
 	GameEngine(),
@@ -20,14 +19,14 @@ SpaceBattle::SpaceBattle(const HighScore & highScore) :
 
 PlayerShip * SpaceBattle::createShip() {
 	PlayerShip * ship = new PlayerShip();
-	ship->setPositionRange(0, SCREEN_X);
-	ship->setPosition(SCREEN_X/2, 550);
+	ship->setPositionRange(0, LEET_SCREEN_X);
+	ship->setPosition(LEET_SCREEN_X/2, SIG_SHIP_POSITION_Y);
 	this->setShip(ship);
 	return ship;
 }
 
 void SpaceBattle::createAlienFleet() {
-	for (unsigned int i = 0; i < FLEET_ALIEN_COUNT; i++) {
+	for (unsigned int i = 0; i < SIG_ALIEN_FLEET_SIZE; i++) {
 		Alien * alien = new Alien(i);
 		this->add(alien);
 	}

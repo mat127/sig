@@ -33,7 +33,8 @@ template<class T> struct Vector {
 	}
 
 	float length() const {
-		return sqrtf(x*x + y*y);
+		float xf = (float)x, yf = (float)y;
+		return sqrtf(xf*xf + yf*yf);
 	}
 };
 

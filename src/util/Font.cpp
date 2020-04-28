@@ -14,13 +14,13 @@ void * Font::get(char ch) {
 }
 
 void * Font::getDigit(char ch) {
-	char buffer[256];
+	char buffer[32];
 	snprintf(buffer, sizeof(buffer), "gfx/num%c.png", ch);
 	return SkinLoader::getSkin(buffer);
 }
 
 void * Font::getLetter(char ch) {
-	char buffer[256];
+	char buffer[32];
 	snprintf(buffer, sizeof(buffer), "gfx/%clet.png", ch);
 	return SkinLoader::getSkin(buffer);
 }

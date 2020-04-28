@@ -31,7 +31,7 @@ void TextWidget::draw(const char * format, ...) {
 }
 
 void TextWidget::format(const char * format, va_list args) {
-	char buffer[64];
+	char buffer[256];
 	vsnprintf(buffer, sizeof(buffer), format, args);
 	this->text = buffer;
 }

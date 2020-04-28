@@ -9,8 +9,10 @@ class Bullet : public SkinGameActor {
 private:
 	Vector<int> speed;
 	void kill(SpaceBattle & battle, Alien * alien);
+
 protected:
 	virtual void * getSkin() const;
+
 public:
 	Bullet();
 

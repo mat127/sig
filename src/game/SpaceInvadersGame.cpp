@@ -22,17 +22,17 @@ public:
 Intro::Intro() {
 	space.text = "space";
 	space.charSize = 48;
-	space.setCenter(SCREEN_X/2, 150);
+	space.setCenter(LEET_SCREEN_X/2, 150);
 	this->add(&space);
 
 	invaders.text = "invaders";
 	invaders.charSize = 48;
-	invaders.setCenter(SCREEN_X / 2, 280);
+	invaders.setCenter(LEET_SCREEN_X / 2, 280);
 	this->add(&invaders);
 
 	start.text = "press space bar to start";
 	start.charSize = 16;
-	start.setCenter(SCREEN_X / 2, 500);
+	start.setCenter(LEET_SCREEN_X / 2, 500);
 	this->add(&start);
 }
 
@@ -67,7 +67,7 @@ GameOver::GameOver(const GameStats & stats, HighScore & highScore) :
 {
 	gameOver.text = "game over";
 	gameOver.charSize = 48;
-	gameOver.setCenter(SCREEN_X/2, 200);
+	gameOver.setCenter(LEET_SCREEN_X/2, 200);
 	this->add(&gameOver);
 
 	score.charSize = 16;
@@ -75,7 +75,7 @@ GameOver::GameOver(const GameStats & stats, HighScore & highScore) :
 
 	whatNext.text = "press space bar for a new game";
 	whatNext.charSize = 16;
-	whatNext.setCenter(SCREEN_X / 2, 450);
+	whatNext.setCenter(LEET_SCREEN_X / 2, 450);
 	this->add(&whatNext);
 }
 
@@ -91,13 +91,13 @@ bool GameOver::show() {
 
 void GameOver::newHighScore() {
 	this->score.format("congrats new high score %06u", this->highScore.value);
-	score.setCenter(SCREEN_X / 2, 350);
+	score.setCenter(LEET_SCREEN_X / 2, 350);
 	this->soundLoop = JukeBox::newHighScore();
 }
 
 void GameOver::normalScore() {
 	score.format("your score %06u", this->stats.score);
-	score.setCenter(SCREEN_X / 2, 350);
+	score.setCenter(LEET_SCREEN_X / 2, 350);
 	this->soundLoop = JukeBox::gameOver();
 }
 

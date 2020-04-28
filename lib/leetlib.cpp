@@ -605,7 +605,7 @@ INT WINAPI WinMain( HINSTANCE hInst, HINSTANCE, LPSTR cmd, INT )
                       "crapcrap", NULL };
     RegisterClassEx( &wc );
 
-	RECT r={0,0,SCREEN_X,SCREEN_Y};
+	RECT r={0,0,LEET_SCREEN_X,LEET_SCREEN_Y};
 	int style = fullscreen ? WS_POPUP : WS_OVERLAPPEDWINDOW;
 	style|=WS_VISIBLE;
 AdjustWindowRect(&r,style,false);

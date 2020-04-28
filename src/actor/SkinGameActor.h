@@ -20,24 +20,16 @@ public:
 		return this->position;
 	}
 
-	void setPosition(const int x, const int y) {
-		this->position.set(x,y);
-	}
-
 	void setPosition(const Vector<int> & position) {
 		this->position = position;
 	}
 
+	void setPosition(const int x, const int y) {
+		this->position.set(x,y);
+	}
+
 	const Vector<unsigned int> & getSize() const {
 		return this->size;
-	}
-
-	void move(const Vector<int> direction) {
-		this->position += direction;
-	}
-
-	void move(const int dx, const int dy) {
-		this->position += Vector<int>(dx, dy);
 	}
 
 	void setSize(const Vector<unsigned int> & size) {
@@ -50,6 +42,14 @@ public:
 
 	void setSize(const unsigned int size) {
 		this->setSize(size, size);
+	}
+
+	void move(const Vector<int> direction) {
+		this->position += direction;
+	}
+
+	void move(const int dx, const int dy) {
+		this->position += Vector<int>(dx, dy);
 	}
 
 	inline void setAngle(const float angle) {

@@ -1,6 +1,7 @@
 #define _USE_MATH_DEFINES
 #include <cmath>
 
+#include "game/SpaceInvadersConfig.h"
 #include "Alien.h"
 #include "PlayerShip.h"
 #include "Explosion.h"
@@ -8,7 +9,6 @@
 #include "util/SkinLoader.h"
 #include "util/JukeBox.h"
 
-#define ALIEN_SKIN_FILENAME "gfx/Little Invader.png"
 
 Alien::Alien(unsigned int id) :
 	SkinGameActor(),
@@ -20,7 +20,7 @@ Alien::Alien(unsigned int id) :
 }
 
 void * Alien::getSkin() const {
-	return SkinLoader::getSkin(ALIEN_SKIN_FILENAME);
+	return SkinLoader::getSkin(SIG_ALIEN_SKIN_FILENAME);
 }
 
 void Alien::tick(GameEngine & engine) {

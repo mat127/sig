@@ -3,6 +3,7 @@
 
 #include "lib/leetlib.h"
 
+#include "game/SpaceInvadersConfig.h"
 #include "PlayerShip.h"
 #include "game/SpaceBattle.h"
 #include "actor/Bullet.h"
@@ -10,30 +11,24 @@
 #include "util/SkinLoader.h"
 #include "util/JukeBox.h"
 
-#define SHIP_SKIN_FILENAME			"gfx/Big Invader.png"
-#define SHIP_NORMAL_SIZE			30
-#define SHIP_STEP_SIZE				7
-
-#define SHIP_GUN_LOADING_INTERVAL	15
-#define SHIP_GUN_SHOT_DIRECTION		0,-4
 
 Vector<int> Gun::bulletDirections[] = {
-	Vector<int>(SHIP_GUN_SHOT_DIRECTION),
-	Vector<int>(SHIP_GUN_SHOT_DIRECTION) + Vector<int>(-1,0),
-	Vector<int>(SHIP_GUN_SHOT_DIRECTION) + Vector<int>(1,0)
+	Vector<int>(SIG_SHIP_GUN_SHOT_DIRECTION),
+	Vector<int>(SIG_SHIP_GUN_SHOT_DIRECTION) + Vector<int>(-1,0),
+	Vector<int>(SIG_SHIP_GUN_SHOT_DIRECTION) + Vector<int>(1,0)
 };
 
 #define SPRAY_BULLET_COUNT			3
 
 PlayerShip::PlayerShip() :
-	SkinGameActor(), gun(*this, SHIP_GUN_LOADING_INTERVAL)
+	SkinGameActor(), gun(*this, SIG_SHIP_GUN_LOADING_INTERVAL)
 {
-	this->setSize(SHIP_NORMAL_SIZE);
-	this->stepSize = SHIP_STEP_SIZE;
+	this->setSize(SIG_SHIP_NORMAL_SIZE);
+	this->stepSize = SIG_SHIP_STEP_SIZE;
 }
 
 void * PlayerShip::getSkin() const {
-	return SkinLoader::getSkin(SHIP_SKIN_FILENAME);
+	return SkinLoader::getSkin(SIG_SHIP_SKIN_FILENAME);
 }
 
 void PlayerShip::tick(GameEngine & engine) {
@@ -100,14 +95,14 @@ void Gun::doLoading() {
 		return;
 	else
 		this->loadingLevel++;
-	this->ship.setSize(SHIP_NORMAL_SIZE + this->loadingLevel);
+	this->ship.setSize(SIG_SHIP_NORMAL_SIZE + this->loadingLevel);
 	if (this->isHighlyLoaded())
 		JukeBox::highlyLoaded();
 }
 
 void Gun::restartLoading() {
 	this->loadingLevel = 0;
-	this->ship.setSize(SHIP_NORMAL_SIZE);
+	this->ship.setSize(SIG_SHIP_NORMAL_SIZE);
 }
 
 void Gun::shoot(SpaceBattle & battle) {

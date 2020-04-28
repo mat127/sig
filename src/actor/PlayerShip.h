@@ -2,6 +2,7 @@
 #include "lib/leetlib.h"
 
 #include "SkinGameActor.h"
+#include "util/Vector.h"
 
 class Bullet;
 class PlayerShip;
