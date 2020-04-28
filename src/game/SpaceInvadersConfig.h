@@ -1,5 +1,7 @@
 #pragma once
 
+#define SIG_WINDOW_TITLE			"Space Invaders"
+
 #define SIG_PLAYER_LIVES_COUNT		3
 
 #define SIG_SHIP_POSITION_Y			550

@@ -17,6 +17,8 @@ bool WantQuit(DWORD clearcolor=0);
 void Flip(); // flips the screen, frame locked to 60 hz
 void Game(); // you write this :)
 
+extern const char * _leetWindowTitle; // you write this :)
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // input
 void GetMousePos(float &x, float &y); // 0,0 is top left; 800,600 is bottom right

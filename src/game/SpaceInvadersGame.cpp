@@ -5,6 +5,8 @@
 #include "util/JukeBox.h"
 #include "widget/WidgetScreen.h"
 
+const char * _leetWindowTitle = SIG_WINDOW_TITLE;
+
 void Game() {
 	SpaceInvadersGame().run();
 }
