@@ -1,3 +1,5 @@
+#include <cstdio>
+
 #include "Explosion.h"
 #include "game/SpaceBattle.h"
 #include "util/SkinLoader.h"

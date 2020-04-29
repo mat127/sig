@@ -1,4 +1,5 @@
-#include <ctype.h>
+#include <cctype>
+#include <cstdio>
 #include <stdexcept>
 
 #include "Font.h"

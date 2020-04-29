@@ -30,14 +30,14 @@ void Bullet::check(GameEngine & engine) {
 		if(alien == nullptr) // can kill only an alien
 			continue;
 		if (this->hit(*alien)) {
-			this->kill(battle, alien);
+			this->kill(battle, *alien);
 			return;
 		}
 	}
 }
 
-void Bullet::kill(SpaceBattle & battle, Alien * alien) {
-	alien->explode(battle);
+void Bullet::kill(SpaceBattle & battle, Alien & alien) {
+	alien.explode(battle);
 	if(battle.remove(this)) // maybe hit by another bullet already?
-		battle.killed(*alien);
+		battle.killed(alien);
 }

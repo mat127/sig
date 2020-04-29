@@ -42,7 +42,7 @@ void PlayerShip::tick(GameEngine & engine) {
 }
 
 void PlayerShip::rotate(unsigned int time) {
-	this->setAngle(M_PI + sin(time*0.1f)*0.1f);
+	this->setAngle((float)(M_PI + sin(time*0.1f)*0.1f));
 }
 
 bool PlayerShip::canMoveLeft() {

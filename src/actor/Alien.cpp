@@ -32,9 +32,9 @@ void Alien::move(unsigned int time) {
 	int n = this->id;
 	int n1 = time + n*n + n*n*n;
 	int n2 = time + n + n*n + n*n*n * 3;
-	if (((n1 >> 6) & 0x7) == 0x7)offset.x += (1 - cos((n1 & 0x7f) / 64.0f*2.f*3.141592))*(20 + ((n*n) % 9));
-	if (((n1 >> 6) & 0x7) == 0x7)offset.y += (sin((n1 & 0x7f) / 64.0f*2.f*3.141592))*(20 + ((n*n) % 9));
-	if (((n2 >> 8) & 0xf) == 0xf)offset.y += (1 - cos((n2 & 0xff) / 256.0f*2.f*3.141592))*(150 + ((n*n) % 9));
+	if (((n1 >> 6) & 0x7) == 0x7)offset.x += (int)((1 - cos((n1 & 0x7f) / 64.0f*2.f*3.141592))*(20 + ((n*n) % 9)));
+	if (((n1 >> 6) & 0x7) == 0x7)offset.y += (int)((sin((n1 & 0x7f) / 64.0f*2.f*3.141592))*(20 + ((n*n) % 9)));
+	if (((n2 >> 8) & 0xf) == 0xf)offset.y += (int)((1 - cos((n2 & 0xff) / 256.0f*2.f*3.141592))*(150 + ((n*n) % 9)));
 	this->moveTo(offset);
 }
 

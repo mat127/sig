@@ -1,5 +1,6 @@
 #include <cstdio>
 
+
 #include "lib/leetlib.h"
 
 #include "TextWidget.h"
@@ -12,13 +13,13 @@ void TextWidget::draw() {
 			void * glyph = Font::get(c);
 			DrawSprite(
 				glyph,
-				position.x, position.y,
-				this->charSize, this->charSize,
+				(float)position.x, (float)position.y,
+				(float)this->charSize, (float)this->charSize,
 				0.f,
 				0xffffffff
 			);
 		}
-		position.x += this->charSize * this->spacingFactor;
+		position.x += (int)(this->charSize * this->spacingFactor);
 	}
 }
 
@@ -50,5 +51,5 @@ void TextWidget::setCenter(int x, int y) {
 
 int TextWidget::getWidth() const {
 	size_t charCount = this->text.length();
-	return this->charSize * this->spacingFactor * charCount;
+	return (int)(this->charSize * this->spacingFactor * charCount);
 }

@@ -2,7 +2,6 @@
 #include <algorithm>
 
 #include "SpaceBattleActor.h"
-#include "game/Drawable.h"
 #include "util/Vector.h"
 
 class SkinGameActor : public SpaceBattleActor {

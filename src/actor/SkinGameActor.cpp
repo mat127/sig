@@ -13,8 +13,8 @@ void SkinGameActor::draw() {
 	void * skin = this->getSkin();
 	DrawSprite(
 		skin,
-		this->position.x, this->position.y,
-		this->size.x, this->size.y,
+		(float)this->position.x, (float)this->position.y,
+		(float)this->size.x, (float)this->size.y,
 		this->angle,
 		0xffffffff
 	);
